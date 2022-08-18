@@ -1,0 +1,179 @@
+"main@1" prio=5 tid=0x1 nid=NA waiting
+  java.lang.Thread.State: WAITING
+	 blocks pool-1-thread-1@9887
+	  at jdk.internal.misc.Unsafe.park(Unsafe.java:-1)
+	  at java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+	  at java.util.concurrent.FutureTask.awaitDone(FutureTask.java:444)
+	  at java.util.concurrent.FutureTask.get(FutureTask.java:203)
+	  at io.github.resilience4j.timelimiter.internal.TimeLimiterImpl.lambda$decorateFutureSupplier$0(TimeLimiterImpl.java:46)
+	  at io.github.resilience4j.timelimiter.internal.TimeLimiterImpl$$Lambda$1004/0x000000080129e9c8.call(Unknown Source:-1)
+	  at io.github.resilience4j.circuitbreaker.CircuitBreaker.lambda$decorateCallable$3(CircuitBreaker.java:171)
+	  at io.github.resilience4j.circuitbreaker.CircuitBreaker$$Lambda$1013/0x00000008012a7478.call(Unknown Source:-1)
+	  at org.springframework.cloud.circuitbreaker.resilience4j.Resilience4JCircuitBreaker$$Lambda$1014/0x00000008012a7870.apply(Unknown Source:-1)
+	  at io.vavr.control.Try.of(Try.java:75)
+	  at org.springframework.cloud.circuitbreaker.resilience4j.Resilience4JCircuitBreaker.run(Resilience4JCircuitBreaker.java:123)
+	  at org.springframework.cloud.openfeign.FeignCircuitBreakerInvocationHandler.invoke(FeignCircuitBreakerInvocationHandler.java:105)
+	  at jdk.proxy2.$Proxy152.getDataBaseMessage(Unknown Source:-1)
+	  at application.config.init.Test2.println(Test2.java:20)
+	  at application.config.init.AbstractTest.print(AbstractTest.java:19)
+	  at java.lang.invoke.LambdaForm$DMH/0x0000000801028400.invokeVirtual(LambdaForm$DMH:-1)
+	  at java.lang.invoke.LambdaForm$MH/0x0000000801028c00.invoke(LambdaForm$MH:-1)
+	  at java.lang.invoke.Invokers$Holder.invokeExact_MT(Invokers$Holder:-1)
+	  at jdk.internal.reflect.DirectMethodHandleAccessor.invokeImpl(DirectMethodHandleAccessor.java:154)
+	  at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	  at java.lang.reflect.Method.invoke(Method.java:577)
+	  at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleElement.invoke(InitDestroyAnnotationBeanPostProcessor.java:389)
+	  at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeInitMethods(InitDestroyAnnotationBeanPostProcessor.java:333)
+	  at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:157)
+	  at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInitialization(AbstractAutowireCapableBeanFactory.java:440)
+	  at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1796)
+	  at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620)
+	  at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	  at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	  at org.springframework.beans.factory.support.AbstractBeanFactory$$Lambda$357/0x0000000800e32a20.getObject(Unknown Source:-1)
+	  at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	  - locked <0x2705> (a java.util.concurrent.ConcurrentHashMap)
+	  at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	  at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	  at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:955)
+	  at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918)
+	  at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	  - locked <0x272d> (a java.lang.Object)
+	  at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147)
+	  at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:734)
+	  at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408)
+	  at org.springframework.boot.SpringApplication.run(SpringApplication.java:308)
+	  at org.springframework.boot.SpringApplication.run(SpringApplication.java:1306)
+	  at org.springframework.boot.SpringApplication.run(SpringApplication.java:1295)
+	  at web.BootstrapApplication.main(BootstrapApplication.java:20)
+
+"pool-1-thread-1@9887" prio=5 tid=0x20 nid=NA waiting for monitor entry
+  java.lang.Thread.State: BLOCKED
+	 waiting for main@1 to release lock on <0x2705> (a java.util.concurrent.ConcurrentHashMap)
+	  at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.getSingletonFactoryBeanForTypeCheck(AbstractAutowireCapableBeanFactory.java:1006)
+	  at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.getTypeForFactoryBean(AbstractAutowireCapableBeanFactory.java:907)
+	  at org.springframework.beans.factory.support.AbstractBeanFactory.isTypeMatch(AbstractBeanFactory.java:637)
+	  at org.springframework.beans.factory.support.DefaultListableBeanFactory.doGetBeanNamesForType(DefaultListableBeanFactory.java:583)
+	  at org.springframework.beans.factory.support.DefaultListableBeanFactory.getBeanNamesForType(DefaultListableBeanFactory.java:550)
+	  at org.springframework.beans.factory.BeanFactoryUtils.beanNamesForTypeIncludingAncestors(BeanFactoryUtils.java:265)
+	  at org.springframework.beans.factory.BeanFactoryUtils.beanNamesForTypeIncludingAncestors(BeanFactoryUtils.java:269)
+	  at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:1557)
+	  at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1354)
+	  at org.springframework.beans.factory.support.DefaultListableBeanFactory$DependencyObjectProvider.getObject(DefaultListableBeanFactory.java:1990)
+	  at org.springframework.cloud.openfeign.support.SpringDecoder.decode(SpringDecoder.java:70)
+	  at org.springframework.cloud.openfeign.support.ResponseEntityDecoder.decode(ResponseEntityDecoder.java:61)
+	  at feign.optionals.OptionalDecoder.decode(OptionalDecoder.java:36)
+	  at feign.AsyncResponseHandler.decode(AsyncResponseHandler.java:115)
+	  at feign.AsyncResponseHandler.handleResponse(AsyncResponseHandler.java:87)
+	  at feign.SynchronousMethodHandler.executeAndDecode(SynchronousMethodHandler.java:138)
+	  at feign.SynchronousMethodHandler.invoke(SynchronousMethodHandler.java:89)
+	  at org.springframework.cloud.openfeign.FeignCircuitBreakerInvocationHandler.lambda$asSupplier$1(FeignCircuitBreakerInvocationHandler.java:128)
+	  at org.springframework.cloud.openfeign.FeignCircuitBreakerInvocationHandler$$Lambda$995/0x000000080129b8b0.get(Unknown Source:-1)
+	  at org.springframework.cloud.circuitbreaker.resilience4j.Resilience4JCircuitBreaker$$Lambda$1015/0x00000008012a7b10.call(Unknown Source:-1)
+	  at java.util.concurrent.FutureTask.run$$$capture(FutureTask.java:264)
+	  at java.util.concurrent.FutureTask.run(FutureTask.java:-1)
+	  at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	  at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	  at java.lang.Thread.run(Thread.java:833)
+
+"Catalina-utility-2@6602" prio=1 tid=0x1c nid=NA waiting
+  java.lang.Thread.State: WAITING
+	  at jdk.internal.misc.Unsafe.park(Unsafe.java:-1)
+	  at java.util.concurrent.locks.LockSupport.park(LockSupport.java:341)
+	  at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionNode.block(AbstractQueuedSynchronizer.java:506)
+	  at java.util.concurrent.ForkJoinPool.unmanagedBlock(ForkJoinPool.java:3464)
+	  at java.util.concurrent.ForkJoinPool.managedBlock(ForkJoinPool.java:3435)
+	  at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.await(AbstractQueuedSynchronizer.java:1623)
+	  at java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1177)
+	  at java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+	  at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+	  at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+	  at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	  at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	  at java.lang.Thread.run(Thread.java:833)
+
+"RMI TCP Accept-0@1973" daemon prio=5 tid=0x14 nid=NA runnable
+  java.lang.Thread.State: RUNNABLE
+	  at sun.nio.ch.Net.accept(Net.java:-1)
+	  at sun.nio.ch.NioSocketImpl.accept(NioSocketImpl.java:752)
+	  at java.net.ServerSocket.implAccept(ServerSocket.java:673)
+	  at java.net.ServerSocket.platformImplAccept(ServerSocket.java:639)
+	  at java.net.ServerSocket.implAccept(ServerSocket.java:615)
+	  at java.net.ServerSocket.implAccept(ServerSocket.java:572)
+	  at java.net.ServerSocket.accept(ServerSocket.java:530)
+	  at sun.management.jmxremote.LocalRMIServerSocketFactory$1.accept(LocalRMIServerSocketFactory.java:52)
+	  at sun.rmi.transport.tcp.TCPTransport$AcceptLoop.executeAcceptLoop(TCPTransport.java:424)
+	  at sun.rmi.transport.tcp.TCPTransport$AcceptLoop.run(TCPTransport.java:388)
+	  at java.lang.Thread.run(Thread.java:833)
+
+"Catalina-utility-1@6598" prio=1 tid=0x1b nid=NA runnable
+  java.lang.Thread.State: RUNNABLE
+	  at jdk.internal.misc.Unsafe.park(Unsafe.java:-1)
+	  at java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+	  at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+	  at java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+	  at java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+	  at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+	  at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+	  at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	  at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	  at java.lang.Thread.run(Thread.java:833)
+
+"HikariPool-1 housekeeper@6495" daemon prio=5 tid=0x1a nid=NA waiting
+  java.lang.Thread.State: WAITING
+	  at jdk.internal.misc.Unsafe.park(Unsafe.java:-1)
+	  at java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+	  at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+	  at java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+	  at java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+	  at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+	  at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+	  at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	  at java.lang.Thread.run(Thread.java:833)
+
+"Coroutines Debugger Cleaner@1046" daemon prio=5 tid=0x11 nid=NA waiting
+  java.lang.Thread.State: WAITING
+	  at java.lang.Object.wait(Object.java:-1)
+	  at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:155)
+	  at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:176)
+	  at kotlinx.coroutines.debug.internal.ConcurrentWeakMap.runWeakRefQueueCleaningLoopUntilInterrupted(ConcurrentWeakMap.kt:74)
+	  at kotlinx.coroutines.debug.internal.DebugProbesImpl$startWeakRefCleanerThread$1.invoke(DebugProbesImpl.kt:100)
+	  at kotlinx.coroutines.debug.internal.DebugProbesImpl$startWeakRefCleanerThread$1.invoke(DebugProbesImpl.kt:99)
+	  at kotlin.concurrent.ThreadsKt$thread$thread$1.run(Thread.kt:30)
+
+"Common-Cleaner@9776" daemon prio=8 tid=0xd nid=NA waiting
+  java.lang.Thread.State: WAITING
+	  at java.lang.Object.wait(Object.java:-1)
+	  at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:155)
+	  at jdk.internal.ref.CleanerImpl.run(CleanerImpl.java:140)
+	  at java.lang.Thread.run(Thread.java:833)
+	  at jdk.internal.misc.InnocuousThread.run(InnocuousThread.java:162)
+
+"container-0@6621" prio=5 tid=0x1e nid=NA runnable
+  java.lang.Thread.State: RUNNABLE
+	  at java.lang.Thread.sleep(Thread.java:-1)
+	  at org.apache.catalina.core.StandardServer.await(StandardServer.java:566)
+	  at org.springframework.boot.web.embedded.tomcat.TomcatWebServer$1.run(TomcatWebServer.java:197)
+
+"Reference Handler@9773" daemon prio=10 tid=0x2 nid=NA runnable
+  java.lang.Thread.State: RUNNABLE
+	  at java.lang.ref.Reference.waitForReferencePendingList(Reference.java:-1)
+	  at java.lang.ref.Reference.processPendingReferences(Reference.java:253)
+	  at java.lang.ref.Reference$ReferenceHandler.run(Reference.java:215)
+
+"Finalizer@9774" daemon prio=8 tid=0x3 nid=NA waiting
+  java.lang.Thread.State: WAITING
+	  at java.lang.Object.wait(Object.java:-1)
+	  at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:155)
+	  at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:176)
+	  at java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:183)
+
+"Signal Dispatcher@9775" daemon prio=9 tid=0x4 nid=NA runnable
+  java.lang.Thread.State: RUNNABLE
+
+"Attach Listener@1615" daemon prio=5 tid=0x5 nid=NA runnable
+  java.lang.Thread.State: RUNNABLE
+
+"Notification Thread@1057" daemon prio=9 tid=0x12 nid=NA runnable
+  java.lang.Thread.State: RUNNABLE
+
